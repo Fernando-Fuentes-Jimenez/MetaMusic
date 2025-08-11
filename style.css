@@ -165,7 +165,7 @@ ul li::before {
     gap: 30px;
     margin: 0;
     padding: 0;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .nav-links li a {

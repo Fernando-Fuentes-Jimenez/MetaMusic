@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css - Versión FINAL y Corregida para MetaMusic */
 
 /* Variables CSS para facilitar la gestión de temas y colores */
 :root {
@@ -14,7 +14,9 @@
     --shadow-cta-hover-secondary: 0 0 30px rgba(9, 132, 227, 0.8);
 }
 
+/* -------------------------------------------------------------------------- */
 /* General Body and Typography */
+/* -------------------------------------------------------------------------- */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -22,7 +24,7 @@ body {
     background-color: var(--color-white);
     color: var(--color-primary-dark);
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Previene el scroll horizontal por animaciones */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,15 +35,16 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+/* Fluid font sizes with clamp() for general headings */
 h1 {
-    font-size: 4.5em;
+    font-size: clamp(2.5em, 8vw, 4.5em); /* Min 2.5em, preferred 8vw, max 4.5em */
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 3em;
+    font-size: clamp(1.8em, 5vw, 3em); /* Min 1.8em, preferred 5vw, max 3em */
     margin-bottom: 40px;
     position: relative;
     padding-bottom: 15px;
@@ -85,7 +88,7 @@ ul {
     padding: 0;
     margin-top: 20px;
     text-align: left;
-    max-width: fit-content;
+    max-width: fit-content; /* Permite que la lista se ajuste al contenido */
     margin-left: auto;
     margin-right: auto;
 }
@@ -97,36 +100,29 @@ ul li {
     text-align: left;
 }
 
-/* FIX: Flechas de lista limpias */
+/* Flechas de lista limpias y con color sólido */
 ul li::before {
     content: '→';
     position: absolute;
     left: 0;
-    /* Usar un color directo o un color del gradiente principal */
-    color: #0984E3; /* Azul del degradado para la flecha */
+    color: #0984E3; /* Azul del degradado para la flecha, más limpio que text-fill-color */
     font-weight: bold;
     font-size: 1.2em;
 }
-.nav-links li::before {
-    content: none; /* Esto oculta la flecha */
-}
-
-.nav-links li {
-    padding-left: 0; /* Asegura que no haya padding extra para el espacio de la flecha */
-}
-
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px; /* Padding por defecto para los lados */
 }
 
 .text-center {
     text-align: center;
 }
 
-/* --- Barra de Navegación Fija --- */
+/* -------------------------------------------------------------------------- */
+/* Navbar */
+/* -------------------------------------------------------------------------- */
 .navbar {
     position: fixed;
     top: 0;
@@ -138,7 +134,7 @@ ul li::before {
     z-index: 999;
     padding: 15px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
+    transform: translateY(-100%); /* Inicialmente oculto por JS */
     transition: transform 0.5s ease-out;
 }
 
@@ -153,7 +149,7 @@ ul li::before {
 }
 
 .nav-logo img {
-    height: 40px;
+    height: 40px; /* Tamaño para el logo en la nav */
     transition: transform 0.3s ease-in-out;
 }
 .nav-logo img:hover {
@@ -165,7 +161,15 @@ ul li::before {
     gap: 30px;
     margin: 0;
     padding: 0;
-    padding-top: 20px;
+}
+
+/* FIX: Eliminar flechas de los nav-links */
+.nav-links li::before {
+    content: none;
+}
+
+.nav-links li {
+    padding-left: 0; /* Asegura que no haya padding extra para el espacio de la flecha */
 }
 
 .nav-links li a {
@@ -189,15 +193,16 @@ ul li::before {
 }
 
 .nav-links li a:hover {
-    color: #0984E3;
+    color: #0984E3; /* Color azul al pasar el ratón */
 }
 
 .nav-links li a:hover::after {
     width: 100%;
 }
 
-
-/* --- Main Page / Hero de Inicio --- */
+/* -------------------------------------------------------------------------- */
+/* Main Page / Hero de Inicio (Primera pantalla de "desbloqueo") */
+/* -------------------------------------------------------------------------- */
 .main-page {
     height: 100vh;
     display: flex;
@@ -206,25 +211,25 @@ ul li::before {
     text-align: center;
     background: var(--gradient-bg-main-page);
     color: var(--color-white);
-    position: fixed;
+    position: fixed; /* Fija la página de inicio para el efecto de desbloqueo */
     top: 0; left: 0; width: 100%; z-index: 1000;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out; /* Animación de desvanecimiento para el "unlocked" */
 }
 
 .main-page.locked {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: auto; /* Permite interacciones */
 }
 
 .main-page.unlocked {
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; /* Desactiva interacciones cuando está oculto */
 }
 
 .background-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2); /* Oscurece el fondo para el contraste */
     z-index: 0;
 }
 
@@ -233,41 +238,50 @@ ul li::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 0 20px;
+    justify-content: space-evenly; /* Distribuye el espacio uniformemente entre los ítems */
+    padding: max(20px, 5vh) 20px; /* Padding vertical más generoso y responsive */
     position: relative;
+    max-width: 90%; /* Limita el ancho en pantallas muy grandes */
+    height: 100%; /* Permite que flexbox distribuya en toda la altura del viewport */
+    box-sizing: border-box; /* Incluye padding en el cálculo del height */
 }
 
 .main-logo {
-    width: 150px;
+    width: clamp(100px, 15vw, 150px); /* Logo responsive */
     height: auto;
+    /* margin-bottom: clamp(25px, 3.5vw, 50px); */ /* Se controla con gap de main-page-content */
 }
 
+/* Títulos con "glitch" en la página de inicio */
 .main-page-content h1 {
-    color: var(--color-white);
-    font-size: 4.5em;
+    font-size: clamp(3em, 10vw, 4.5em); /* Más fluido y con control de tamaño */
+    letter-spacing: clamp(2px, 1vw, 5px); /* Espaciado de letras responsive */
+    color: var(--color-white); /* Asegura el color blanco */
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    /* margin-bottom: clamp(15px, 2vw, 25px); */ /* Se controla con gap de main-page-content */
 }
 
 .main-page-content h2 {
-    color: var(--color-white);
-    font-size: 3.5em;
+    font-size: clamp(1.8em, 6vw, 3.5em); /* Más fluido y con control de tamaño */
+    color: var(--color-white); /* Asegura el color blanco */
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    /* margin-bottom: clamp(30px, 5vw, 60px); */ /* Se controla con gap de main-page-content */
 }
 
 .main-page-content h2::after {
-    display: none;
+    display: none; /* Oculta la línea de h2 en esta sección */
 }
 
 .main-page-content p {
-    font-size: 1.8em;
+    font-size: clamp(1em, 2.5vw, 1.8em); /* Párrafo más fluido */
     color: #e0e0e0;
     max-width: 700px;
+    /* margin-bottom: clamp(40px, 6vw, 80px); */ /* Se controla con gap de main-page-content */
 }
 
 .unlock-button {
     display: inline-block;
-    padding: 20px 45px;
+    padding: clamp(15px, 3vw, 20px) clamp(30px, 6vw, 45px); /* Padding responsive */
     background-color: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.7);
     color: var(--color-white);
@@ -275,13 +289,13 @@ ul li::before {
     font-weight: 600;
     border-radius: 50px;
     transition: all 0.4s ease-in-out;
-    font-size: 1.2em;
+    font-size: clamp(1em, 2vw, 1.2em); /* Tamaño de fuente responsive */
     text-transform: uppercase;
     letter-spacing: 2px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    margin-top: 40px;
+    /* margin-top: clamp(20px, 4vw, 40px); */ /* Se controla con gap de main-page-content */
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -320,66 +334,41 @@ ul li::before {
     position: relative;
     animation: glitch-skew 1s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.glitch::before,
-.glitch::after {
+.glitch::before, .glitch::after {
     content: attr(data-text);
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
 }
-
 .glitch::before {
-    left: 2px;
-    text-shadow: -2px 0 #FF00FF;
+    left: 2px; text-shadow: -2px 0 #FF00FF;
     animation: glitch-top 1s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94);
     clip-path: inset(0 0 100% 0);
 }
-
 .glitch::after {
-    left: -2px;
-    text-shadow: -2px 0 #00FFFF;
+    left: -2px; text-shadow: -2px 0 #00FFFF;
     animation: glitch-bottom 1.5s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94);
     clip-path: inset(100% 0 0 0);
 }
-
 @keyframes glitch-top {
-    0% { clip-path: inset(100% 0 0 0); }
-    10% { clip-path: inset(80% 0 0 0); }
-    20% { clip-path: inset(60% 0 0 0); }
-    30% { clip-path: inset(10% 0 0 0); }
-    40% { clip-path: inset(100% 0 0 0); }
-    50% { clip-path: inset(0 0 0 0); }
-    60% { clip-path: inset(20% 0 0 0); }
-    70% { clip-path: inset(40% 0 0 0); }
-    80% { clip-path: inset(60% 0 0 0); }
-    90% { clip-path: inset(80% 0 0 0); }
+    0% { clip-path: inset(100% 0 0 0); } 10% { clip-path: inset(80% 0 0 0); }
+    20% { clip-path: inset(60% 0 0 0); } 30% { clip-path: inset(10% 0 0 0); }
+    40% { clip-path: inset(100% 0 0 0); } 50% { clip-path: inset(0 0 0 0); }
+    60% { clip-path: inset(20% 0 0 0); } 70% { clip-path: inset(40% 0 0 0); }
+    80% { clip-path: inset(60% 0 0 0); } 90% { clip-path: inset(80% 0 0 0); }
     100% { clip-path: inset(100% 0 0 0); }
 }
-
 @keyframes glitch-bottom {
-    0% { clip-path: inset(0 0 0 0); }
-    10% { clip-path: inset(0 0 80% 0); }
-    20% { clip-path: inset(0 0 60% 0); }
-    30% { clip-path: inset(0 0 10% 0); }
-    40% { clip-path: inset(0 0 0 0); }
-    50% { clip-path: inset(0 0 100% 0); }
-    60% { clip-path: inset(0 0 20% 0); }
-    70% { clip-path: inset(0 0 40% 0); }
-    80% { clip-path: inset(0 0 60% 0); }
-    90% { clip-path: inset(0 0 80% 0); }
+    0% { clip-path: inset(0 0 0 0); } 10% { clip-path: inset(0 0 80% 0); }
+    20% { clip-path: inset(0 0 60% 0); } 30% { clip-path: inset(0 0 10% 0); }
+    40% { clip-path: inset(0 0 0 0); } 50% { clip-path: inset(0 0 100% 0); }
+    60% { clip-path: inset(0 0 20% 0); } 70% { clip-path: inset(0 0 40% 0); }
+    80% { clip-path: inset(0 0 60% 0); } 90% { clip-path: inset(0 0 80% 0); }
     100% { clip-path: inset(0 0 100% 0); }
 }
-
 @keyframes glitch-skew {
-    0% { transform: skew(0deg); }
-    10% { transform: skew(-5deg); }
-    20% { transform: skew(5deg); }
-    30% { transform: skew(-2deg); }
-    40% { transform: skew(2deg); }
-    50% { transform: skew(0deg); }
+    0% { transform: skew(0deg); } 10% { transform: skew(-5deg); }
+    20% { transform: skew(5deg); } 30% { transform: skew(-2deg); }
+    40% { transform: skew(2deg); } 50% { transform: skew(0deg); }
     100% { transform: skew(0deg); }
 }
 
@@ -389,37 +378,27 @@ ul li::before {
     overflow: hidden;
     display: inline-block;
 }
-
 .sub-glitch::before, .sub-glitch::after {
     content: attr(data-text);
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     color: var(--color-white);
     text-shadow: none;
 }
-
 .sub-glitch::before {
-    left: 1px;
-    text-shadow: 1px 0 0 #FF00FF;
+    left: 1px; text-shadow: 1px 0 0 #FF00FF;
     animation: sub-glitch-top 2s infinite alternate ease-in-out;
 }
-
 .sub-glitch::after {
-    left: -1px;
-    text-shadow: -1px 0 0 #00FFFF;
+    left: -1px; text-shadow: -1px 0 0 #00FFFF;
     animation: sub-glitch-bottom 2.5s infinite alternate ease-in-out;
 }
-
 @keyframes sub-glitch-top {
     0%, 100% { clip-path: inset(0 0 0% 0); opacity: 1; }
     25% { clip-path: inset(0 0 70% 0); opacity: 0.8; }
     50% { clip-path: inset(0 0 30% 0); opacity: 0.7; }
     75% { clip-path: inset(0 0 90% 0); opacity: 0.9; }
 }
-
 @keyframes sub-glitch-bottom {
     0%, 100% { clip-path: inset(0% 0 0 0); opacity: 1; }
     25% { clip-path: inset(70% 0 0 0); opacity: 0.8; }
@@ -428,7 +407,9 @@ ul li::before {
 }
 
 
-/* --- Contenido Principal del Sitio (inicialmente oculto) --- */
+/* -------------------------------------------------------------------------- */
+/* Contenido Principal del Sitio (Inicialmente oculto por JS) */
+/* -------------------------------------------------------------------------- */
 #website-content {
     opacity: 0;
     transform: translateY(20px);
@@ -440,7 +421,9 @@ ul li::before {
     transform: translateY(0);
 }
 
-/* Hero Section - Ahora con Parallax de fondo y contenido en primer plano */
+/* -------------------------------------------------------------------------- */
+/* Hero Section (después de desbloquear) */
+/* -------------------------------------------------------------------------- */
 .hero {
     height: 100vh;
     display: flex;
@@ -449,8 +432,8 @@ ul li::before {
     text-align: center;
     color: var(--color-primary-dark);
     position: relative;
-    overflow: hidden;
-    padding-top: 60px; /* Para dejar espacio a la nav */
+    overflow: hidden; /* Esencial para el parallax */
+    padding-top: 60px; /* Base para dejar espacio a la nav, ajustado en hero-content */
     border-bottom: 8px solid;
     border-image: var(--gradient-main) 1;
 }
@@ -458,7 +441,7 @@ ul li::before {
 .parallax-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    overflow: hidden;
+    overflow: hidden; /* Asegura que las capas parallax se recorten */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -468,21 +451,22 @@ ul li::before {
 
 .parallax-layer {
     position: absolute;
-    width: 110%;
-    height: 110%;
+    width: 120%; /* Aumenta el ancho para dar más margen al parallax y evitar bordes vacíos */
+    height: 120%; /* Aumenta el alto por la misma razón */
     background-size: cover;
     background-position: center;
-    will-change: transform; /* Hint para el navegador */
+    will-change: transform;
 }
 
+/* URLs de fondo de alta resolución para Parallax. ¡Considera optimizarlas y reemplazarlas! */
 .parallax-layer.layer-1 {
-    background-image: url('https://source.unsplash.com/1920x1080/?futuristic-music-abstract');
+    background-image: url('https://source.unsplash.com/1920x1080/?futuristic-music-abstract,light');
     opacity: 0.6;
     z-index: 1;
 }
 
 .parallax-layer.layer-2 {
-    background-image: url('https://source.unsplash.com/1920x1080/?sound-waves-minimal');
+    background-image: url('https://source.unsplash.com/1920x1080/?sound-waves-minimal,tech');
     opacity: 0.4;
     z-index: 2;
 }
@@ -491,60 +475,58 @@ ul li::before {
     z-index: 3;
     position: relative;
     color: var(--color-primary-dark);
-    animation: none;
-    transform: none;
-    opacity: 1;
-    display: flex;
+    padding: 20px; /* Padding general para los bordes */
+    max-width: 90%; /* Limita el ancho del contenido del hero */
+    /* Ajustes CRÍTICOS para el espaciado vertical en el hero post-unlock */
+    display: flex; /* Asegura el comportamiento flex */
     flex-direction: column;
     align-items: center;
-    padding: 0 20px;
+    justify-content: space-evenly; /* Distribuye el espacio uniformemente */
+    padding-top: max(50px, 8vh); /* Mínimo 50px o 8% del alto del viewport */
+    padding-bottom: max(50px, 8vh); /* Mínimo 50px o 8% del alto del viewport */
+    height: 100%; /* Permite que flexbox actúe sobre toda la altura disponible */
+    box-sizing: border-box; /* Incluye padding en el cálculo del height */
 }
 
 .hero-logo {
-    width: 150px;
+    width: clamp(100px, 15vw, 150px); /* Logo responsive */
     height: auto;
+    /* margin-bottom: clamp(25px, 3.5vw, 50px); */ /* Se controla con gap de hero-content */
 }
 
+/* Títulos con efecto "Text Stroke" en el hero */
 .hero-content h1 {
-    color: var(--color-primary-dark);
-    text-shadow: none;
-    font-size: 4em;
+    font-size: clamp(3em, 9vw, 6em); /* Título principal del hero más fluido */
+    letter-spacing: clamp(3px, 1.5vw, 8px); /* Espaciado de letras fluido */
+    color: transparent; /* Texto transparente para el stroke */
+    -webkit-text-stroke: 2px var(--color-white); /* Borde blanco */
+    text-stroke: 2px var(--color-white);
+    /* margin-bottom: clamp(15px, 2vw, 25px); */ /* Se controla con gap de hero-content */
 }
+
+/* Títulos con efecto "Text Fill" en el hero (subtítulo) */
 .hero-content h2 {
-    color: var(--color-primary-dark);
-    text-shadow: none;
-    font-size: 2.5em;
+    font-size: clamp(1.5em, 5vw, 3em); /* Subtítulo del hero más fluido */
+    color: var(--color-white); /* Color blanco para el subtítulo */
+    text-shadow: 0 0 10px rgba(0, 184, 148, 0.5); /* Sombra para el glow */
+    /* margin-bottom: clamp(30px, 5vw, 60px); */ /* Se controla con gap de hero-content */
 }
+
 .hero-content h2::after {
     display: none; /* Quitamos la línea para estos títulos de Hero */
 }
 
 .hero-content p {
-    color: #555555;
-    text-shadow: none;
-    font-size: 1.2em;
+    font-size: clamp(0.9em, 1.5vw, 1.2em); /* Párrafo del hero más fluido */
+    color: #e0e0e0; /* Color claro para el párrafo */
     max-width: 600px;
+    margin-bottom: 0; /* Último párrafo de la sección, no necesita margen inferior */
 }
 
-/* Efecto de texto con borde (Text Stroke) */
-.text-stroke {
-    color: transparent;
-    -webkit-text-stroke: 2px var(--color-white);
-    text-stroke: 2px var(--color-white);
-    letter-spacing: 8px;
-    font-size: 6em !important;
-    transition: all 0.5s ease-in-out;
-}
-
+/* Hover effects for text stroke/fill */
 .text-stroke:hover {
     -webkit-text-stroke-color: #00B894;
     text-stroke-color: #00B894;
-}
-
-.text-fill {
-    color: var(--color-white);
-    text-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
-    transition: all 0.5s ease-in-out;
 }
 
 .text-fill:hover {
@@ -552,8 +534,9 @@ ul li::before {
     text-shadow: 0 0 20px rgba(9, 132, 227, 0.7);
 }
 
-
-/* --- Secciones Generales y Animaciones Scroll-Driven --- */
+/* -------------------------------------------------------------------------- */
+/* Secciones Generales y Animaciones Scroll-Driven */
+/* -------------------------------------------------------------------------- */
 .section {
     padding: 100px 0;
     background-color: var(--color-white);
@@ -561,8 +544,8 @@ ul li::before {
     box-shadow: var(--shadow-light);
     overflow: hidden;
     position: relative;
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 0; /* Controlado por GSAP */
+    transform: translateY(50px); /* Controlado por GSAP */
 }
 
 .section:nth-child(even) {
@@ -591,7 +574,7 @@ ul li::before {
 .split-layout .content-right {
     flex: 1;
     padding: 20px;
-    flex-basis: 48%;
+    flex-basis: 48%; /* Adjust for spacing when wrapping */
 }
 
 /* Para la nueva sección de tecnología, invertir orden en mobile */
@@ -599,12 +582,14 @@ ul li::before {
     flex-direction: row-reverse; /* Default for desktop */
 }
 
-/* Image Placeholders / Mockups (Futuristic Visuals) */
+/* -------------------------------------------------------------------------- */
+/* Image Placeholders / Mockups / Videos (Futuristic Visuals) */
+/* -------------------------------------------------------------------------- */
 .image-placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 300px;
+    min-height: 300px; /* Altura mínima para el contenedor del video/mockup */
     background-color: #f0f0f0;
     border-radius: 15px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -614,47 +599,20 @@ ul li::before {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Specific Mockup Styles */
-.visualizer-mockup {
-    width: 90%; height: 90%;
-    background: radial-gradient(circle at center, rgba(0, 184, 148, 0.2) 0%, rgba(9, 132, 227, 0.2) 100%);
-    border-radius: 10px; position: relative; overflow: hidden;
-    transform: rotateY(0deg); transition: transform 0.3s ease-out;
+/* Ocultar mockups si se usan videos en su lugar */
+.visualizer-mockup, .brainwave-mockup {
+    display: none; /* Asegura que no se muestren si se ha puesto un video */
 }
-.visualizer-mockup::before {
-    content: ''; position: absolute; top: 10%; left: 10%; right: 10%; bottom: 10%;
-    background: repeating-linear-gradient(90deg, #00B894 0px, #00B894 2px, transparent 2px, transparent 10px);
-    opacity: 0.6; animation: animateBars 2s infinite alternate;
-}
-.visualizer-mockup::after {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at center, rgba(0, 184, 148, 0.4) 0%, transparent 60%);
-    animation: pulseLight 3s infinite alternate;
+.visualizer-mockup::before, .visualizer-mockup::after,
+.brainwave-mockup::before, .brainwave-mockup::after {
+    content: none; /* Elimina sus pseudo-elementos */
 }
 
-.brainwave-mockup {
-    width: 90%; height: 90%;
-    background: #e0e0e0;
-    border-radius: 10px; position: relative; overflow: hidden;
-    transform: rotateX(0deg); transition: transform 0.3s ease-out;
-}
-.brainwave-mockup::before {
-    content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 5px;
-    background: var(--gradient-main); box-shadow: 0 0 15px rgba(9, 132, 227, 0.7);
-    animation: waveEffect 3s infinite ease-in-out;
-}
-.brainwave-mockup::after {
-    content: ''; position: absolute; width: 60px; height: 60px;
-    background: radial-gradient(circle, #00B894 0%, transparent 70%);
-    border-radius: 50%; top: 20%; left: 20%; opacity: 0.7;
-    animation: floatAndFade 5s infinite alternate;
-}
-
-/* --- NUEVAS REGLAS: Estilo para el video profesional --- */
-.tech-video {
+/* Estilo para videos dentro de secciones (Ej: .tech-video, .section-video) */
+.tech-video, .section-video {
     width: 100%; /* El video ocupa el 100% del ancho de su contenedor */
     height: 100%; /* El video ocupa el 100% del alto de su contenedor */
-    object-fit: cover; /* **Esto es CLAVE**: El video cubrirá el área sin distorsionarse, recortando si es necesario */
+    object-fit: cover; /* CLAVE: El video cubrirá el área sin distorsionarse, recortando si es necesario */
     border-radius: 15px; /* Para que coincida con el border-radius del image-placeholder */
     position: absolute; /* Para que ocupe todo el image-placeholder */
     top: 0;
@@ -662,87 +620,30 @@ ul li::before {
     z-index: 1; /* Asegura que esté por encima del fondo del image-placeholder si lo hubiera */
 }
 
-/* Es importante que el image-placeholder sea el contenedor del video */
-.image-placeholder {
-    /* Mantén las propiedades que ya tenías para el contenedor del video */
-    display: flex; /* Asegura que el contenedor siga siendo flex para centrado si hay otros elementos */
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
-    background-color: #f0f0f0; /* Color de fondo del contenedor, el video lo cubrirá */
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    position: relative; /* **CLAVE**: Necesario para que el video absoluto se posicione respecto a él */
-    overflow: hidden; /* **CLAVE**: Recorta el video si se sale de los bordes del contenedor */
-    transition: transform 0.6s ease-in-out;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+/* Specific Mockup Animations (if still used elsewhere, otherwise these can be removed) */
+@keyframes animateBars {
+    0% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1); }
+    100% { transform: scaleY(0.5); }
 }
 
-/* ... (el resto de tu CSS) ... */
-
-/* Ajustes responsive para el video si es necesario */
-@media (max-width: 768px) {
-    .image-placeholder {
-        min-height: 220px; /* Ajusta la altura del contenedor del video en móvil */
-    }
+@keyframes waveEffect {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
 }
 
-@media (max-width: 480px) {
-    .image-placeholder {
-        min-height: 180px; /* Ajusta la altura del contenedor del video en móvil pequeño */
-    }
-    /* Asegúrate de que el video no tenga animaciones de pseudo-elementos aquí */
-    .tech-video::before, .tech-video::after {
-        animation: none;
-        content: none;
-    }
+@keyframes drawWave {
+    0% { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0 0 0); }
 }
 
-.section-video { /* Clase genérica para videos dentro de sections */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+@keyframes subtleGlow {
+    0% { box-shadow: 0 0 20px rgba(0, 184, 148, 0.3); }
+    50% { box-shadow: 0 0 50px rgba(9, 132, 227, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(0, 184, 148, 0.3); }
 }
 
-/* Es importante que el image-placeholder sea el contenedor del video */
-.image-placeholder {
-    /* Mantén estas propiedades, ya que son el contenedor general para videos y mockups */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
-    background-color: #f0f0f0;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.6s ease-in-out;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-
-/* Ajustes responsive para el video si es necesario */
-@media (max-width: 768px) {
-    .image-placeholder {
-        min-height: 220px;
-    }
-}
-
-@media (max-width: 480px) {
-    .image-placeholder {
-        min-height: 180px;
-    }
-    /* Asegúrate de que el video no tenga animaciones de pseudo-elementos aquí */
-    .section-video::before, .section-video::after { /* Usar la clase genérica */
-        animation: none;
-        content: none;
-    }
-}
 .waveform-animation-mockup {
     width: 80%; height: 180px; margin: 40px auto;
     background: linear-gradient(90deg, rgba(0,184,148,0.1), rgba(9,132,227,0.1));
@@ -777,7 +678,9 @@ ul li::before {
     font-size: 1.5em; color: var(--color-primary-dark); opacity: 0.8;
 }
 
+/* -------------------------------------------------------------------------- */
 /* Call to Action */
+/* -------------------------------------------------------------------------- */
 .call-to-action {
     background-color: var(--color-light-gray);
     text-align: center;
@@ -856,7 +759,9 @@ ul li::before {
     transform: translateY(-5px) scale(1.02);
 }
 
+/* -------------------------------------------------------------------------- */
 /* Footer */
+/* -------------------------------------------------------------------------- */
 footer {
     background-color: var(--color-primary-dark);
     color: var(--color-white);
@@ -877,7 +782,9 @@ footer {
     text-decoration: underline;
 }
 
-/* --- Animaciones Generales --- */
+/* -------------------------------------------------------------------------- */
+/* Animations (General) */
+/* -------------------------------------------------------------------------- */
 .fade-in-up {
     opacity: 0;
     transform: translateY(20px);
@@ -938,7 +845,32 @@ footer {
     transform: scale(1.05);
 }
 
-/* Mockup Specific Animations */
+/* -------------------------------------------------------------------------- */
+/* Mockup/Video Specific Animations and Styles */
+/* -------------------------------------------------------------------------- */
+
+/* Ocultar mockups si se usan videos en su lugar */
+.visualizer-mockup, .brainwave-mockup {
+    display: none; /* Asegura que no se muestren si se ha puesto un video */
+}
+.visualizer-mockup::before, .visualizer-mockup::after,
+.brainwave-mockup::before, .brainwave-mockup::after {
+    content: none; /* Elimina sus pseudo-elementos */
+}
+
+/* Estilo para videos dentro de secciones (Ej: .tech-video, .section-video) */
+.tech-video, .section-video {
+    width: 100%; /* El video ocupa el 100% del ancho de su contenedor */
+    height: 100%; /* El video ocupa el 100% del alto de su contenedor */
+    object-fit: cover; /* CLAVE: El video cubrirá el área sin distorsionarse, recortando si es necesario */
+    border-radius: 15px; /* Para que coincida con el border-radius del image-placeholder */
+    position: absolute; /* Para que ocupe todo el image-placeholder */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Asegura que esté por encima del fondo del image-placeholder si lo hubiera */
+}
+
+/* Specific Mockup Animations (if still used elsewhere, otherwise these can be removed) */
 @keyframes animateBars {
     0% { transform: scaleY(0.5); }
     50% { transform: scaleY(1); }
@@ -962,158 +894,354 @@ footer {
     100% { box-shadow: 0 0 20px rgba(0, 184, 148, 0.3); }
 }
 
+.waveform-animation-mockup {
+    width: 80%; height: 180px; margin: 40px auto;
+    background: linear-gradient(90deg, rgba(0,184,148,0.1), rgba(9,132,227,0.1));
+    border-radius: 10px; position: relative; overflow: hidden;
+    box-shadow: var(--shadow-light); border: 1px solid rgba(0, 0, 0, 0.05);
+    background-size: 200% 100%; animation: backgroundPan 10s infinite linear;
+}
+.waveform-animation-mockup::before {
+    content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 5px;
+    background: var(--gradient-main); transform: translateY(-50%);
+    animation: drawWave 4s infinite linear; transform-origin: left center;
+}
 
-/* --- Responsive Design --- */
-/* Tablet & smaller desktop screens */
+@keyframes backgroundPan {
+    0% { background-position: 0% 50%; }
+    100% { background-position: -200% 50%; }
+}
+
+.event-glow-mockup {
+    width: 80%; height: 250px; margin: 40px auto;
+    background: #e0e0e0; border-radius: 15px; position: relative; overflow: hidden;
+    box-shadow: 0 0 40px rgba(9, 132, 227, 0.2);
+}
+.event-glow-mockup::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, rgba(0, 184, 148, 0.3) 0%, rgba(9, 132, 227, 0.3) 50%, transparent 80%);
+    animation: subtleGlow 4s infinite alternate;
+}
+.event-glow-mockup::after {
+    content: '🎶 immersive experience 🎵'; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em; color: var(--color-primary-dark); opacity: 0.8;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Call to Action */
+/* -------------------------------------------------------------------------- */
+.call-to-action {
+    background-color: var(--color-light-gray);
+    text-align: center;
+    padding: 120px 0;
+    border-top: 8px solid;
+    border-image: var(--gradient-main) 1;
+    position: relative;
+    z-index: 5;
+}
+
+.cta-buttons {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 20px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.3em;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: skewX(-20deg);
+    z-index: -1;
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+.button.primary {
+    background: var(--gradient-main);
+    color: var(--color-white);
+    border: none;
+}
+
+.button.primary:hover {
+    background: var(--gradient-main-reverse);
+    box-shadow: var(--shadow-cta-hover-primary);
+    transform: translateY(-5px) scale(1.02);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--color-primary-dark);
+    border: 3px solid #0984E3;
+}
+
+.button.secondary:hover {
+    background-color: #0984E3;
+    color: var(--color-white);
+    box-shadow: var(--shadow-cta-hover-secondary);
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Footer */
+/* -------------------------------------------------------------------------- */
+footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #555555;
+    font-size: 0.9em;
+}
+
+.footer-link {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Responsive Design (Breakpoints y Ajustes Finos) */
+/* -------------------------------------------------------------------------- */
+
+/* Tablet & Smaller Desktop Screens (<= 992px) */
 @media (max-width: 992px) {
-    .container { padding: 0 30px; }
-    h1 { font-size: 3.8em; }
-    h2 { font-size: 2.5em; }
-    h3 { font-size: 1.8em; }
-    p { font-size: 1em; }
+    .container {
+        padding: 0 30px;
+    }
 
-    .navbar .container { flex-direction: column; gap: 10px; }
-    .nav-links { gap: 15px; }
-    .nav-links li a { font-size: 1em; }
+    /* Navbar adjustments for smaller screens */
+    .navbar .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+    .nav-links li a {
+        font-size: 1em;
+    }
 
-    .main-page-content h1 { font-size: 4em; }
-    .main-page-content h2 { font-size: 2.8em; }
-    .main-page-content p { font-size: 1.5em; }
-    .main-logo { width: 150px; }
-    .unlock-button { padding: 18px 40px; font-size: 1.1em; }
+    /* Main Page / Initial Hero Adjustments */
+    .main-page-content {
+        padding-top: max(40px, 6vh); /* Ajuste más agresivo para laptops y tablets */
+        padding-bottom: max(40px, 6vh);
+    }
+    .main-logo {
+        margin-bottom: clamp(20px, 3vw, 40px); /* Ajuste de margen */
+    }
+    .main-page-content h1 {
+        margin-bottom: clamp(10px, 1.5vw, 20px);
+    }
+    .main-page-content h2 {
+        margin-bottom: clamp(20px, 3.5vw, 40px);
+    }
+    .main-page-content p {
+        margin-bottom: clamp(30px, 5vw, 60px);
+    }
+    .unlock-button {
+        margin-top: clamp(20px, 3.5vw, 30px);
+    }
 
-    .hero-content h1 { font-size: 3.5em; }
-    .hero-content h2 { font-size: 2.2em; }
-    .hero-logo { width: 120px; }
-    .text-stroke { font-size: 5em !important; letter-spacing: 5px; }
+    /* Hero Section (after unlock) Adjustments */
+    .hero-content {
+        padding-top: max(40px, 6vh); /* Ajuste de padding para el hero */
+        padding-bottom: max(40px, 6vh);
+    }
+    .hero-logo {
+        margin-bottom: clamp(20px, 3vw, 40px); /* Ajuste de margen */
+    }
+    .hero-content h1 {
+        margin-bottom: clamp(10px, 1.5vw, 20px);
+    }
+    .hero-content h2 {
+        margin-bottom: clamp(20px, 3.5vw, 40px);
+    }
 
+    /* Section layout adjustments */
     .section { padding: 80px 0; }
     .section .container { gap: 40px; }
-
     .split-layout { flex-direction: column; align-items: center; }
-    .split-layout .content-left,
-    .split-layout .content-right {
+    .split-layout .content-left, .split-layout .content-right {
         flex-basis: auto; width: 100%; max-width: 600px;
         text-align: center; padding: 20px 0;
     }
     .image-placeholder { min-height: 280px; width: 90%; max-width: 450px; }
-
     ul { text-align: left; margin-left: auto; margin-right: auto; }
     ul li { padding-left: 1.8em; text-align: left; margin-bottom: 10px; }
     ul li::before { position: absolute; left: 0; margin-right: 0; display: inline-block; }
-
-    .split-layout.reverse-order-mobile {
-        flex-direction: column;
-    }
-
-
+    .split-layout.reverse-order-mobile { flex-direction: column; }
     .cta-buttons { flex-direction: column; gap: 20px; }
     .button { width: 80%; max-width: 350px; font-size: 1.2em; padding: 18px 30px; }
 }
 
-/* Mobile screens */
+/* Mobile Screens (<= 768px) */
 @media (max-width: 768px) {
     .container { padding: 0 20px; }
-    h1 { font-size: 2.8em; letter-spacing: 2px; }
-    h2 { font-size: 2.2em; }
     h3 { font-size: 1.6em; }
     p { font-size: 0.95em; }
 
+    /* Navbar adjustments */
     .navbar { padding: 10px 0; }
     .nav-links { gap: 10px; flex-wrap: wrap; justify-content: center; }
     .nav-links li a { font-size: 0.9em; }
+    .nav-logo img { height: 35px; }
 
-    .main-page-content h1 { font-size: 3.2em; }
-    .main-page-content h2 { font-size: 2.4em; }
-    .main-page-content p { font-size: 1.2em; }
-    .main-logo { width: 120px; margin-bottom: 20px; }
-    .unlock-button { margin-top: 40px; padding: 15px 25px; font-size: 1em; }
+    /* Main Page / Initial Hero Adjustments */
+    .main-page-content {
+        padding-top: max(30px, 5vh); /* Más reducido para móviles */
+        padding-bottom: max(30px, 5vh);
+    }
+    .main-logo {
+        margin-bottom: clamp(15px, 2.5vw, 30px);
+    }
+    .main-page-content h1 {
+        letter-spacing: clamp(1px, 0.8vw, 2px);
+    }
+    .main-page-content h2 {
+        margin-bottom: clamp(20px, 3vw, 40px);
+    }
+    .main-page-content p {
+        margin-bottom: clamp(25px, 4vw, 50px);
+    }
+    .unlock-button {
+        margin-top: clamp(15px, 3vw, 30px);
+    }
 
-    .hero { height: 50vh; padding-top: 40px; }
-    .hero-content h1 { font-size: 2.8em; }
-    .hero-content h2 { font-size: 2em; }
-    .hero-logo { width: 100px; margin-bottom: 20px; }
-    .hero-content p { font-size: 1.1em; }
-    .text-stroke { font-size: 4em !important; letter-spacing: 4px; }
+    /* Hero Section (after unlock) Adjustments */
+    .hero {
+        height: 60vh; /* Ajuste para que se vea más completo en móvil, puedes probar 70vh también */
+        padding-top: max(30px, 5vh);
+        padding-bottom: max(30px, 5vh);
+    }
+    .hero-logo {
+        margin-bottom: clamp(15px, 2.5vw, 30px);
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
 
-
+    /* Section layout adjustments */
     .section { padding: 60px 0; }
     .section .container { gap: 30px; }
-
-    .split-layout .content-left,
-    .split-layout .content-right { padding: 15px 0; }
-
+    .split-layout .content-left, .split-layout .content-right { padding: 15px 0; }
     .image-placeholder { min-height: 220px; width: 95%; }
-
     .waveform-animation-mockup, .event-glow-mockup {
         width: 95%; height: 150px; margin: 30px auto;
     }
     .event-glow-mockup::after { font-size: 1.2em; }
-
     .call-to-action { padding: 80px 0; }
     .cta-buttons { gap: 15px; }
-    .button {
-        width: 95%; max-width: 280px;
-        padding: 15px 25px; font-size: 1.1em;
-    }
+    .button { width: 95%; max-width: 280px; padding: 15px 25px; font-size: 1.1em; }
 }
 
-/* Smallest mobile screens */
+/* Smallest Mobile Screens (<= 480px) */
 @media (max-width: 480px) {
     .container { padding: 0 15px; }
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
     h3 { font-size: 1.3em; }
     p { font-size: 0.9em; }
 
+    /* Navbar adjustments */
     .navbar .container { flex-direction: column; gap: 5px; }
     .nav-links { gap: 8px; font-size: 0.8em; }
     .nav-logo img { height: 30px; }
 
-    .main-page-content h1 { font-size: 2.5em; }
-    .main-page-content h2 { font-size: 1.8em; }
-    .main-page-content p { font-size: 1em; }
-    .main-logo { width: 100px; }
-    .unlock-button { padding: 12px 20px; font-size: 0.9em; }
+    /* Main Page / Initial Hero Adjustments */
+    .main-page-content {
+        padding-top: max(20px, 4vh);
+        padding-bottom: max(20px, 4vh);
+    }
+    .main-logo {
+        margin-bottom: clamp(10px, 2vw, 20px);
+    }
+    .main-page-content h1 {
+        letter-spacing: clamp(1px, 0.5vw, 2px);
+    }
+    .main-page-content h2 {
+        margin-bottom: clamp(15px, 2.5vw, 30px);
+    }
+    .main-page-content p {
+        margin-bottom: clamp(20px, 3vw, 40px);
+    }
+    .unlock-button {
+        margin-top: clamp(10px, 2vw, 20px);
+    }
 
-    .hero { height: 45vh; }
-    .hero-content h1 { font-size: 2.2em; }
-    .hero-content h2 { font-size: 1.6em; }
-    .hero-logo { width: 80px; }
-    .hero-content p { font-size: 0.95em; }
-    .text-stroke { font-size: 3em !important; letter-spacing: 2px; }
+    /* Hero Section (after unlock) Adjustments */
+    .hero {
+        height: 55vh; /* Ajuste final para móviles pequeños */
+        padding-top: max(20px, 3vh);
+        padding-bottom: max(20px, 3vh);
+    }
+    .hero-logo {
+        margin-bottom: clamp(10px, 2vw, 20px);
+    }
+    .hero-content p {
+        font-size: 0.95em;
+    }
 
+    /* Section layout adjustments */
     .section { padding: 40px 0; }
     .section .container { gap: 20px; }
-
     .image-placeholder { min-height: 180px; }
-
     .waveform-animation-mockup, .event-glow-mockup {
         height: 120px;
     }
     .event-glow-mockup::after { font-size: 1em; }
-
     .call-to-action { padding: 60px 0; }
     .button { padding: 12px 20px; font-size: 1em; }
 
-    /* Simplify animations on very small screens for performance */
+    /* Simplify/Disable Animations on Very Small Screens for Performance */
     .visualizer-mockup::before, .visualizer-mockup::after,
     .brainwave-mockup::before, .brainwave-mockup::after,
     .waveform-animation-mockup::before,
-    .event-glow-mockup::before, .event-glow-mockup::after {
-        animation: none;
-        content: none;
-        background-image: none;
-    }
-    .waveform-animation-mockup { animation: none; }
-
+    .event-glow-mockup::before, .event-glow-mockup::after,
     .glitch::before, .glitch::after,
     .sub-glitch::before, .sub-glitch::after {
-        animation: none;
-        content: none;
+        animation: none !important;
+        content: none !important;
+        background-image: none !important;
+        text-shadow: none !important;
+        clip-path: none !important;
     }
+    .glitch, .sub-glitch,
+    .waveform-animation-mockup {
+        animation: none !important;
+    }
+    /* Asegura que el color del texto sea visible cuando se deshabilitan los glitches */
     .glitch, .sub-glitch {
-        animation: none;
-        color: var(--color-white);
+        color: var(--color-white) !important;
     }
 }

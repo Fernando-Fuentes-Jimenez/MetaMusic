@@ -165,6 +165,7 @@ ul li::before {
     gap: 30px;
     margin: 0;
     padding: 0;
+    padding-top: 30px;
 }
 
 .nav-links li a {
@@ -649,6 +650,99 @@ ul li::before {
     animation: floatAndFade 5s infinite alternate;
 }
 
+/* --- NUEVAS REGLAS: Estilo para el video profesional --- */
+.tech-video {
+    width: 100%; /* El video ocupa el 100% del ancho de su contenedor */
+    height: 100%; /* El video ocupa el 100% del alto de su contenedor */
+    object-fit: cover; /* **Esto es CLAVE**: El video cubrirá el área sin distorsionarse, recortando si es necesario */
+    border-radius: 15px; /* Para que coincida con el border-radius del image-placeholder */
+    position: absolute; /* Para que ocupe todo el image-placeholder */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Asegura que esté por encima del fondo del image-placeholder si lo hubiera */
+}
+
+/* Es importante que el image-placeholder sea el contenedor del video */
+.image-placeholder {
+    /* Mantén las propiedades que ya tenías para el contenedor del video */
+    display: flex; /* Asegura que el contenedor siga siendo flex para centrado si hay otros elementos */
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background-color: #f0f0f0; /* Color de fondo del contenedor, el video lo cubrirá */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    position: relative; /* **CLAVE**: Necesario para que el video absoluto se posicione respecto a él */
+    overflow: hidden; /* **CLAVE**: Recorta el video si se sale de los bordes del contenedor */
+    transition: transform 0.6s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ... (el resto de tu CSS) ... */
+
+/* Ajustes responsive para el video si es necesario */
+@media (max-width: 768px) {
+    .image-placeholder {
+        min-height: 220px; /* Ajusta la altura del contenedor del video en móvil */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-placeholder {
+        min-height: 180px; /* Ajusta la altura del contenedor del video en móvil pequeño */
+    }
+    /* Asegúrate de que el video no tenga animaciones de pseudo-elementos aquí */
+    .tech-video::before, .tech-video::after {
+        animation: none;
+        content: none;
+    }
+}
+
+.section-video { /* Clase genérica para videos dentro de sections */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Es importante que el image-placeholder sea el contenedor del video */
+.image-placeholder {
+    /* Mantén estas propiedades, ya que son el contenedor general para videos y mockups */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+/* Ajustes responsive para el video si es necesario */
+@media (max-width: 768px) {
+    .image-placeholder {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-placeholder {
+        min-height: 180px;
+    }
+    /* Asegúrate de que el video no tenga animaciones de pseudo-elementos aquí */
+    .section-video::before, .section-video::after { /* Usar la clase genérica */
+        animation: none;
+        content: none;
+    }
+}
 .waveform-animation-mockup {
     width: 80%; height: 180px; margin: 40px auto;
     background: linear-gradient(90deg, rgba(0,184,148,0.1), rgba(9,132,227,0.1));

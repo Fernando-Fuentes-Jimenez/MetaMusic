@@ -242,7 +242,7 @@ ul li::before {
     padding: max(20px, 5vh) 20px; /* Padding vertical más generoso y responsive */
     position: relative;
     max-width: 90%; /* Limita el ancho en pantallas muy grandes */
-    height: 100%; /* Permite que flexbox distribuya en toda la altura del viewport */
+    height: 90%; /* Permite que flexbox distribuya en toda la altura del viewport */
     box-sizing: border-box; /* Incluye padding en el cálculo del height */
 }
 

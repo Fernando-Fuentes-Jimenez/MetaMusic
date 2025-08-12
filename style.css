@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Fluid font sizes with clamp() for general headings */
 h1 {
-    font-size: clamp(2.5em, 8vw, 4.5em); /* Min 2.5em, preferred 8vw, max 4.5em */
+    font-size: clamp(2.3em, 8vw, 4.5em); /* Min 2.5em, preferred 8vw, max 4.5em */
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-bottom: 10px;
@@ -496,7 +496,7 @@ ul li::before {
 
 /* Títulos con efecto "Text Stroke" en el hero */
 .hero-content h1 {
-    font-size: clamp(3em, 9vw, 6em); /* Título principal del hero más fluido */
+    font-size: clamp(2.4em, 9vw, 6em); /* Título principal del hero más fluido */
     letter-spacing: clamp(3px, 1.5vw, 8px); /* Espaciado de letras fluido */
     color: transparent; /* Texto transparente para el stroke */
     -webkit-text-stroke: 2px var(--color-white); /* Borde blanco */
@@ -1244,4 +1244,25 @@ footer {
     .glitch, .sub-glitch {
         color: var(--color-white) !important;
     }
+}
+
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(Gemini_Generated_Image_7mxjzv7mxjzv7mxj.png);
+  background-size: cover; /* Ajusta la imagen para cubrir todo el elemento */
+  background-position: center; /* Centra la imagen en el elemento */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  min-height: 100vh; /* Asegura que el hero ocupe al menos toda la altura de la ventana */
+  display: flex; /* Para centrar el contenido verticalmente si lo deseas */
+  align-items: center; /* Para centrar el contenido verticalmente */
+  justify-content: center; /* Para centrar el contenido horizontalmente */
+  color: #ffffff; /* Color del texto para que sea blanco */
+  text-align: center; /* Centra el texto */
+
+}
+
+.hero-logo{
+    width: 100px;
+    padding: 0;
+    margin: 0;
 }

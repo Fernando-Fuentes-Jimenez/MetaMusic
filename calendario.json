@@ -1,0 +1,51 @@
+{
+ "canal": "Pasta Clara",
+ "hora_publicacion": "19:00 Europe/Madrid",
+ "videos": [
+  {
+   "fecha": "2026-11-24",
+   "url": "https://raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/1_gordo_navidad.mp4",
+   "title": "¿Cuánto te queda si te toca el Gordo? 🎟️ #shorts",
+   "description": "Te toca el Gordo de Navidad: 400.000 € por décimo… pero Hacienda se queda con 72.000 €. La regla de los 40.000 € exentos, qué pasa con el 2º, 3º y 4º premio, y qué ocurre si compartes décimo.\n\n¿Qué es lo primero que harías si te toca? 👇\n\nFuentes: Agencia Tributaria, TaxDown, Bankinter.\n\n#loteria #loteriadenavidad #elgordo #hacienda #economia\n\nPasta Clara: la economía de España explicada en 1 minuto. Nuevo vídeo de lunes a viernes.",
+   "tags": "lotería de navidad,el gordo,hacienda,impuestos lotería,décimo,economía,pasta clara",
+   "categoryId": "27",
+   "n8n": true
+  },
+  {
+   "fecha": "2026-11-25",
+   "url": "https://raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/2_mercadona.mp4",
+   "title": "¿Cuánto gana Mercadona de cada euro que gastas? 🛒 #shorts",
+   "description": "Mercadona facturó 41.858 millones en 2025 y ganó 1.729 millones. ¿Cuánto de tu euro es beneficio? Menos de lo que crees: 4,5 céntimos. El truco está en el volumen.\n\n¿Te parece mucho o poco? 👇\n\nFuente: resultados anuales de Mercadona 2025.\n\n#mercadona #supermercado #economia #empresas\n\nPasta Clara: la economía de España explicada en 1 minuto. Nuevo vídeo de lunes a viernes.",
+   "tags": "mercadona,supermercado,beneficio mercadona,juan roig,economía,pasta clara",
+   "categoryId": "27",
+   "n8n": true
+  },
+  {
+   "fecha": "2026-11-26",
+   "url": "https://raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/3_gasolina.mp4",
+   "title": "¿Cuánto de tu gasolina son impuestos? ⛽ #shorts",
+   "description": "Desmontamos un litro de gasolina: impuesto de hidrocarburos + IVA… y el IVA se cobra también sobre el otro impuesto. De cada 50 € de depósito, unos 19 € son impuestos (con la rebaja de noviembre).\n\n¿Lo sabías? 👇\n\nFuentes: Agencia Tributaria, Ministerio de Hacienda. Ejemplo con litro a 1,70 €.\n\n#gasolina #impuestos #economia #coches\n\nPasta Clara: la economía de España explicada en 1 minuto. Nuevo vídeo de lunes a viernes.",
+   "tags": "gasolina,precio gasolina,impuestos gasolina,impuesto hidrocarburos,iva,economía,pasta clara",
+   "categoryId": "27",
+   "n8n": true
+  },
+  {
+   "fecha": "2026-11-27",
+   "url": "https://raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/4_luz_por_horas.mp4",
+   "title": "¿Por qué la lavadora sale más cara a las 7? 💡 #shorts",
+   "description": "Tramos de la luz explicados: valle, llano y punta. Y el truco que poca gente sabe: sábados, domingos y festivos nacionales son valle las 24 horas.\n\n¿A qué hora pones tú la lavadora? 👇\n\nFuentes: CNMC (peaje 2.0TD), Endesa.\n\n#luz #facturadelaluz #ahorro #economia\n\nPasta Clara: la economía de España explicada en 1 minuto. Nuevo vídeo de lunes a viernes.",
+   "tags": "factura de la luz,tramos horarios,hora valle,hora punta,pvpc,ahorro,pasta clara",
+   "categoryId": "27",
+   "n8n": true
+  },
+  {
+   "fecha": "2026-11-28",
+   "url": "https://raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/5_precios_99.mp4",
+   "title": "¿Por qué todo cuesta 9,99 €? 🧠 #shorts",
+   "description": "El efecto del dígito izquierdo: por qué 9,99 € nos parece mucho más barato que 10 €, y por qué solo funciona cuando cambia la primera cifra.\n\n¿Cuál es el precio más tramposo que has visto? 👇\n\nFuente: Thomas y Morwitz (2005), Journal of Consumer Research.\n\n#precios #psicologia #marketing #economia\n\nPasta Clara: la economía de España explicada en 1 minuto. Nuevo vídeo de lunes a viernes.",
+   "tags": "precios 9,99,psicología de precios,marketing,dígito izquierdo,economía,pasta clara",
+   "categoryId": "27",
+   "n8n": true
+  }
+ ]
+}

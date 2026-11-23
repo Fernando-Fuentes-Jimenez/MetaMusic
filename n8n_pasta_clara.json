@@ -1,0 +1,163 @@
+{
+ "name": "Pasta Clara · Publicar Short diario",
+ "settings": {
+  "timezone": "Europe/Madrid",
+  "executionOrder": "v1"
+ },
+ "nodes": [
+  {
+   "id": "1",
+   "name": "Cada día 19:00",
+   "type": "n8n-nodes-base.scheduleTrigger",
+   "typeVersion": 1.2,
+   "position": [
+    0,
+    0
+   ],
+   "parameters": {
+    "rule": {
+     "interval": [
+      {
+       "field": "cronExpression",
+       "expression": "0 19 * * *"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "2",
+   "name": "Leer calendario",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    220,
+    0
+   ],
+   "parameters": {
+    "method": "GET",
+    "url": "https://raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/calendario.json",
+    "options": {
+     "response": {
+      "response": {
+       "responseFormat": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "3",
+   "name": "Vídeos de hoy",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    440,
+    0
+   ],
+   "parameters": {
+    "jsCode": "const data = $input.first().json;\nconst hoy = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Madrid' });\nreturn (data.videos || []).filter(v => v.fecha === hoy && v.n8n !== false).map(v => ({ json: v }));"
+   }
+  },
+  {
+   "id": "4",
+   "name": "Descargar vídeo",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    660,
+    0
+   ],
+   "parameters": {
+    "method": "GET",
+    "url": "={{ $json.url }}",
+    "options": {
+     "response": {
+      "response": {
+       "responseFormat": "file",
+       "outputPropertyName": "data"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "5",
+   "name": "Subir a YouTube",
+   "type": "n8n-nodes-base.youTube",
+   "typeVersion": 1,
+   "position": [
+    880,
+    0
+   ],
+   "parameters": {
+    "resource": "video",
+    "operation": "upload",
+    "title": "={{ $('Vídeos de hoy').item.json.title }}",
+    "regionCode": "ES",
+    "categoryId": "={{ $('Vídeos de hoy').item.json.categoryId }}",
+    "binaryProperty": "data",
+    "options": {
+     "description": "={{ $('Vídeos de hoy').item.json.description }}",
+     "tags": "={{ $('Vídeos de hoy').item.json.tags }}",
+     "privacyStatus": "public",
+     "selfDeclaredMadeForKids": false,
+     "notifySubscribers": true,
+     "defaultLanguage": "es"
+    }
+   },
+   "credentials": {
+    "youTubeOAuth2Api": {
+     "id": "",
+     "name": "YouTube Pasta Clara"
+    }
+   }
+  }
+ ],
+ "connections": {
+  "Cada día 19:00": {
+   "main": [
+    [
+     {
+      "node": "Leer calendario",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Leer calendario": {
+   "main": [
+    [
+     {
+      "node": "Vídeos de hoy",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Vídeos de hoy": {
+   "main": [
+    [
+     {
+      "node": "Descargar vídeo",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Descargar vídeo": {
+   "main": [
+    [
+     {
+      "node": "Subir a YouTube",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ }
+}

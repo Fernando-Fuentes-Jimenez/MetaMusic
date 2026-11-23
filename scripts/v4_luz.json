@@ -1,0 +1,51 @@
+{"tag":"FACTURA DE LA LUZ","accent":"#4cc9f0","scenes":[
+{"sentences":[
+ {"tts":"¿Por qué poner la lavadora a las siete de la tarde te puede salir más caro que a medianoche?","chunks":["¿Por qué la lavadora","a las 19:00","sale más cara","que a medianoche?"]},
+ {"tts":"Culpa de los tramos de la luz.","chunks":["Culpa de los tramos","de la luz"]}],
+ "elements":[
+ {"type":"emoji","ch":"💡","at":0,"y":520,"size":300,"hop":[1]},
+ {"type":"text","at":0,"delay":1.2,"text":"19:00  vs  00:00","y":900,"size":110,"color":"ACC"},
+ {"type":"stamp","at":1,"delay":0.2,"text":"TRAMOS","x":540,"y":1100,"rot":-7,"color":"#ffc83d","size":66}]},
+{"sentences":[
+ {"tts":"Si tienes tarifa por horas, como la regulada, el día laborable se divide en tres tramos.","chunks":["Con tarifa por horas,","como la regulada,","el día tiene 3 tramos"]},
+ {"tts":"Valle, de doce de la noche a ocho de la mañana. El más barato.","chunks":["VALLE: de 0 a 8 h","el más barato"]},
+ {"tts":"Punta, de diez a dos, y de seis a diez de la tarde. El más caro.","chunks":["PUNTA: 10-14 h y 18-22 h","el más caro"]},
+ {"tts":"Y el resto, llano. Precio intermedio.","chunks":["El resto: LLANO","precio intermedio"]}],
+ "elements":[
+ {"type":"clock","at":0,"y":760,"r":300,"segments":[
+   {"from":0,"to":8,"color":"#36d399","at":1},
+   {"from":10,"to":14,"color":"#ff4d6d","at":2},
+   {"from":18,"to":22,"color":"#ff4d6d","at":2,"delay":0.4},
+   {"from":8,"to":10,"color":"#ffc83d","at":3},
+   {"from":14,"to":18,"color":"#ffc83d","at":3,"delay":0.2},
+   {"from":22,"to":24,"color":"#ffc83d","at":3,"delay":0.4}]},
+ {"type":"text","at":1,"text":"VALLE","x":200,"y":1170,"size":54,"color":"#36d399","pop":true},
+ {"type":"text","at":2,"text":"PUNTA","x":540,"y":1170,"size":54,"color":"#ff4d6d"},
+ {"type":"text","at":3,"text":"LLANO","x":880,"y":1170,"size":54,"color":"#ffc83d"}]},
+{"sentences":[
+ {"tts":"¿Y por qué? Porque a esas horas todo el mundo enciende lo mismo: cocina, aire, ordenador.","chunks":["¿Por qué?","A esas horas","todo el mundo enciende","cocina, aire, ordenador"]},
+ {"tts":"La red va más cargada, y gastar luz justo cuando más se pide se paga más caro.","chunks":["La red va más cargada","y gastar en hora punta","se paga más caro"]}],
+ "elements":[
+ {"type":"emoji","ch":"🍳","at":0,"delay":1.6,"x":260,"y":560,"size":180},
+ {"type":"emoji","ch":"❄️","at":0,"delay":2.1,"x":540,"y":560,"size":180},
+ {"type":"emoji","ch":"💻","at":0,"delay":2.6,"x":820,"y":560,"size":180},
+ {"type":"emoji","ch":"⚡","at":1,"y":860,"size":220,"hop":[]},
+ {"type":"stamp","at":1,"delay":1.0,"text":"HORA PUNTA","x":540,"y":1110,"rot":-7,"color":"#ff4d6d","size":62}]},
+{"sentences":[
+ {"tts":"Y el truco que mucha gente no sabe: sábados, domingos y festivos nacionales son valle todo el día.","chunks":["El truco:","sábados, domingos","y festivos nacionales","¡valle las 24 horas!"]},
+ {"tts":"Lavadora, secadora y lavavajillas, mejor de noche o en finde.","chunks":["Lavadora, secadora, lavavajillas:","de noche o en finde"]}],
+ "elements":[
+ {"type":"text","at":0,"delay":0.8,"text":"SÁB · DOM · FESTIVOS","y":560,"size":86,"color":"#ffffff"},
+ {"type":"stamp","at":0,"delay":3.0,"text":"VALLE 24 H","x":540,"y":760,"rot":-6,"color":"#36d399","size":80},
+ {"type":"emoji","ch":"🧺","at":1,"x":330,"y":1010,"size":180},
+ {"type":"emoji","ch":"🌙","at":1,"delay":0.5,"x":750,"y":1010,"size":180}]},
+{"sentences":[
+ {"tts":"Eso sí: si tienes un precio fijo todo el día, esto no te cambia nada. Mira tu factura.","chunks":["Eso sí: con precio fijo 24 h","no te cambia nada.","Mira tu factura"]},
+ {"tts":"¿Tú a qué hora pones la lavadora? Te leo.","chunks":["¿A qué hora pones","tú la lavadora?","Te leo"]}],
+ "elements":[
+ {"type":"emoji","ch":"🧾","at":0,"y":560,"size":240,"out":1},
+ {"type":"text","at":1,"text":"¿A qué hora","y":600,"size":110,"color":"ACC"},
+ {"type":"text","at":1,"delay":0.3,"text":"la pones tú?","y":730,"size":110,"color":"ACC"},
+ {"type":"emoji","ch":"🧺","at":1,"delay":0.8,"y":960,"size":200},
+ {"type":"footer","at":1,"text":"Fuentes: CNMC (peaje 2.0TD), Endesa. Península, días laborables"}]}
+]}

@@ -1,0 +1,48 @@
+{"tag":"GASOLINA","accent":"#ff8c42","scenes":[
+{"sentences":[
+ {"tts":"Echas cincuenta euros de gasolina. ¿Cuánto de eso es gasolina de verdad?","chunks":["Echas 50 € de gasolina.","¿Cuánto es gasolina","de verdad?"]},
+ {"tts":"Cogemos un litro a uno con setenta y lo desmontamos.","chunks":["Cogemos un litro a 1,70 €","y lo desmontamos"]}],
+ "elements":[
+ {"type":"emoji","ch":"⛽","at":0,"y":540,"size":300,"hop":[1]},
+ {"type":"text","at":1,"delay":0.3,"text":"1,70 € / litro","y":930,"size":120,"color":"ACC"},
+ {"type":"text","at":1,"delay":1.0,"text":"(precio de ejemplo)","y":1020,"size":44,"w":"semi","color":"#9aa6d6"}]},
+{"sentences":[
+ {"tts":"Primero, el impuesto de hidrocarburos: una cantidad fija por litro, cueste lo que cueste el petróleo.","chunks":["1. Impuesto de hidrocarburos:","fijo por litro,","cueste lo que cueste el petróleo"]},
+ {"tts":"Normalmente son cuarenta y siete céntimos. Pero en noviembre hay rebaja temporal, y se queda en unos treinta y cuatro.","chunks":["Normalmente: 47 céntimos","En noviembre, con rebaja:","unos 34 céntimos"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"Hidrocarburos","y":500,"size":100,"color":"ACC"},
+ {"type":"text","at":0,"delay":1.4,"text":"fijo por cada litro","y":600,"size":56,"w":"bold","color":"#c9d2ff"},
+ {"type":"text","at":1,"text":"Normal: 47 cts","y":760,"size":70,"w":"xbold","color":"#9aa6d6"},
+ {"type":"count","at":1,"delay":2.3,"to":34,"suffix":" cts","y":960,"size":170,"color":"ACC"},
+ {"type":"stamp","at":1,"delay":3.4,"text":"REBAJA NOV.","x":760,"y":1110,"rot":-8,"color":"#36d399","size":50}]},
+{"sentences":[
+ {"tts":"Segundo, el IVA del veintiuno por ciento. Y aquí viene lo curioso.","chunks":["2. El IVA: 21 %","Y aquí viene lo curioso"]},
+ {"tts":"El IVA se cobra también sobre el impuesto anterior. O sea, pagas un impuesto sobre otro impuesto.","chunks":["El IVA se cobra también","sobre el impuesto anterior:","impuesto sobre impuesto"]},
+ {"tts":"En nuestro litro, el IVA son casi treinta céntimos.","chunks":["En nuestro litro:","IVA ≈ 30 céntimos"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"IVA 21 %","y":520,"size":130,"color":"#ff4d6d","out":2},
+ {"type":"emoji","ch":"🪆","at":1,"y":780,"size":240,"out":2},
+ {"type":"stamp","at":1,"delay":2.6,"text":"IMPUESTO²","x":760,"y":1020,"rot":-8,"color":"#ff4d6d","size":60,"out":2},
+ {"type":"count","at":2,"delay":0.6,"to":29.5,"dec":1,"suffix":" cts","y":760,"size":170,"color":"#ff4d6d"},
+ {"type":"text","at":2,"delay":0.9,"text":"de IVA por litro","y":860,"size":60,"w":"bold","color":"#c9d2ff"}]},
+{"sentences":[
+ {"tts":"Sumando, unos sesenta y cuatro céntimos de cada litro son impuestos. Casi el treinta y ocho por ciento.","chunks":["En total: unos 64 céntimos","de cada litro son impuestos","casi el 38 %"]},
+ {"tts":"Sin la rebaja, serían setenta y siete céntimos: el cuarenta y cinco por ciento.","chunks":["Sin la rebaja:","77 céntimos, el 45 %"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"Tu litro de 1,70 €","y":440,"size":64,"w":"xbold","color":"#c9d2ff"},
+ {"type":"stack","at":0,"y":510,"segments":[
+   {"frac":0.625,"color":"#4c6fff","label":"Gasolina, transporte y margen: 1,06 €","at":0,"delay":0.3},
+   {"frac":0.2,"color":"ACC","label":"Hidrocarburos: 34 cts","at":0,"delay":0.9},
+   {"frac":0.175,"color":"#ff4d6d","label":"IVA: 30 cts","at":0,"delay":1.5}]},
+ {"type":"text","at":0,"delay":3.4,"text":"38 % impuestos","y":1000,"size":110,"color":"ACC"},
+ {"type":"stamp","at":1,"delay":0.6,"text":"SIN REBAJA: 45 %","x":540,"y":1140,"rot":-6,"color":"#ff4d6d","size":54}]},
+{"sentences":[
+ {"tts":"Así que de esos cincuenta euros del depósito, unos diecinueve se van en impuestos.","chunks":["De tus 50 €,","unos 19 € son impuestos"]},
+ {"tts":"¿Sabías lo del impuesto sobre el impuesto? Cuéntamelo abajo.","chunks":["¿Sabías lo del impuesto","sobre el impuesto?","Cuéntamelo abajo"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"De 50 €...","y":520,"size":80,"w":"xbold","color":"#c9d2ff"},
+ {"type":"count","at":0,"delay":0.9,"to":19,"suffix":" €","y":760,"size":200,"color":"ACC"},
+ {"type":"text","at":0,"delay":1.4,"text":"son impuestos","y":870,"size":64,"w":"bold","color":"#c9d2ff"},
+ {"type":"emoji","ch":"💬","at":1,"delay":0.5,"y":1040,"size":160},
+ {"type":"footer","at":1,"text":"Fuentes: Agencia Tributaria, Hacienda (rebaja nov. 2026). Ejemplo con litro a 1,70 €"}]}
+]}

@@ -1,0 +1,51 @@
+{"tag":"LOTERÍA","accent":"#ffc83d","scenes":[
+{"sentences":[
+ {"tts":"Te toca el Gordo de Navidad. Cuatrocientos mil euros por décimo. ¿Seguro?","chunks":["Te toca el Gordo","400.000 € por décimo","¿Seguro?"]},
+ {"tts":"Pues no. Hacienda ya te está esperando en la puerta.","chunks":["Pues no.","Hacienda ya te está","esperando en la puerta"]}],
+ "elements":[
+ {"type":"emoji","ch":"🎟️","at":0,"y":520,"size":300,"hop":[1]},
+ {"type":"count","at":0,"delay":0.9,"to":400000,"suffix":" €","y":880,"size":150,"color":"ACC","dur":1.4},
+ {"type":"text","at":0,"delay":1.2,"text":"por décimo","y":980,"size":60,"w":"bold","color":"#c9d2ff"},
+ {"type":"stamp","at":1,"text":"¿SEGURO?","x":540,"y":1130,"rot":-8,"color":"#ff4d6d","size":70}]},
+{"sentences":[
+ {"tts":"La regla es sencilla: los primeros cuarenta mil euros de cada décimo están libres de impuestos.","chunks":["La regla es sencilla:","los primeros 40.000 €","de cada décimo","están libres de impuestos"]},
+ {"tts":"Y de todo lo que pase de ahí, Hacienda se queda con el veinte por ciento.","chunks":["Y de lo que pase de ahí,","Hacienda se queda","el 20 %"]}],
+ "elements":[
+ {"type":"emoji","ch":"🏛️","at":0,"y":470,"size":220,"hop":[1]},
+ {"type":"stack","at":0,"y":660,"segments":[
+   {"frac":0.1,"color":"#36d399","label":"40.000 € libres de impuestos","at":0,"delay":0.6},
+   {"frac":0.9,"color":"#4c6fff","label":"360.000 € pagan impuestos","at":1,"delay":0.2}]},
+ {"type":"text","at":1,"delay":1.6,"text":"20 %","y":1110,"size":170,"color":"#ff4d6d"}]},
+{"sentences":[
+ {"tts":"Trescientos sesenta mil por el veinte por ciento: setenta y dos mil euros para Hacienda.","chunks":["360.000 × 20 % =","72.000 € para Hacienda"]},
+ {"tts":"Al final cobras trescientos veintiocho mil. Que oye, tampoco está mal.","chunks":["Al final cobras","328.000 €","Que oye,","tampoco está mal"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"360.000 × 20 %","y":560,"size":90,"color":"#c9d2ff","out":1},
+ {"type":"count","at":0,"delay":1.6,"to":72000,"prefix":"-","suffix":" €","y":800,"size":160,"color":"#ff4d6d","out":1},
+ {"type":"stamp","at":0,"delay":2.6,"text":"HACIENDA","x":720,"y":960,"rot":10,"color":"#ff4d6d","size":60,"out":1},
+ {"type":"text","at":1,"delay":0.2,"text":"Te quedan","y":560,"size":70,"w":"bold","color":"#c9d2ff"},
+ {"type":"count","at":1,"delay":0.4,"to":328000,"suffix":" €","y":760,"size":160,"color":"#36d399","dur":1.3},
+ {"type":"emoji","ch":"🤑","at":1,"delay":1.8,"y":1000,"size":200},
+ {"type":"confetti","at":1,"delay":1.7}]},
+{"sentences":[
+ {"tts":"Con los demás premios pasa lo mismo. El segundo, de ciento veinticinco mil, se queda en ciento ocho mil.","chunks":["Con los demás premios,","pasa lo mismo.","El 2º: 125.000 €","se queda en 108.000 €"]},
+ {"tts":"El tercero, de cincuenta mil, en cuarenta y ocho mil.","chunks":["El 3º: 50.000 €","se queda en 48.000 €"]},
+ {"tts":"Y el cuarto, de veinte mil, lo cobras entero, porque no pasa del mínimo.","chunks":["Y el 4º: 20.000 €","lo cobras entero","no pasa del mínimo"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"Lo que te queda de cada premio","y":420,"size":54,"w":"xbold","color":"#c9d2ff"},
+ {"type":"bars","y":540,"gap":175,"items":[
+   {"label":"Gordo · 400.000 €","text":"328.000 €","frac":0.82,"color":"ACC","at":0,"delay":0.2},
+   {"label":"2º · 125.000 €","text":"108.000 €","frac":0.864,"color":"ACC","at":0,"delay":2.6},
+   {"label":"3º · 50.000 €","text":"48.000 €","frac":0.96,"color":"ACC","at":1},
+   {"label":"4º · 20.000 €","text":"20.000 €","frac":1.0,"color":"#36d399","at":2}]},
+ {"type":"stamp","at":2,"delay":1.5,"text":"ÍNTEGRO","x":760,"y":1160,"rot":-8,"color":"#36d399","size":56}]},
+{"sentences":[
+ {"tts":"Ojo con esto: si compartes el décimo, los cuarenta mil exentos se reparten entre todos. No son cuarenta mil por cabeza.","chunks":["Ojo: si compartes décimo,","los 40.000 € exentos","se reparten entre todos","no son 40.000 por cabeza"]},
+ {"tts":"Y tú, si te toca, ¿qué es lo primero que haces? Te leo en comentarios.","chunks":["Y tú, si te toca...","¿qué es lo primero","que haces?","Te leo en comentarios"]}],
+ "elements":[
+ {"type":"emoji","ch":"👥","at":0,"y":520,"size":260,"out":1},
+ {"type":"text","at":0,"delay":1.2,"text":"40.000 € ÷ todos","y":820,"size":100,"color":"ACC","out":1},
+ {"type":"text","at":1,"text":"¿Qué harías tú?","y":640,"size":115,"color":"ACC"},
+ {"type":"emoji","ch":"💬","at":1,"delay":0.6,"y":880,"size":220,"hop":[]},
+ {"type":"footer","at":1,"text":"Fuentes: Agencia Tributaria (gravamen especial loterías), TaxDown, Bankinter"}]}
+]}

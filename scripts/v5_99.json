@@ -1,0 +1,45 @@
+{"tag":"PRECIOS","accent":"#ff5fa2","scenes":[
+{"sentences":[
+ {"tts":"Nueve con noventa y nueve. ¿Por qué casi nada cuesta diez euros justos?","chunks":["9,99 €","¿Por qué casi nada","cuesta 10 € justos?"]},
+ {"tts":"No es casualidad. Es un truco con tu cerebro.","chunks":["No es casualidad.","Es un truco","con tu cerebro"]}],
+ "elements":[
+ {"type":"emoji","ch":"🏷️","at":0,"y":500,"size":260},
+ {"type":"count","at":0,"delay":0.2,"from":0,"to":9.99,"dec":2,"suffix":" €","y":860,"size":180,"color":"ACC","dur":1.0},
+ {"type":"emoji","ch":"🧠","at":1,"delay":0.8,"y":1070,"size":170}]},
+{"sentences":[
+ {"tts":"Leemos de izquierda a derecha, y la primera cifra es la que más pesa.","chunks":["Leemos de izquierda a derecha","y la primera cifra","es la que más pesa"]},
+ {"tts":"Así que nueve con noventa y nueve lo sentimos como nueve y pico, no como diez.","chunks":["9,99 lo sentimos","como «9 y pico»","no como 10"]},
+ {"tts":"Se llama efecto del dígito izquierdo, y está más que estudiado.","chunks":["Se llama","efecto del dígito izquierdo","y está más que estudiado"]}],
+ "elements":[
+ {"type":"text","at":0,"delay":1.0,"text":"9","x":430,"y":800,"size":380,"color":"ACC"},
+ {"type":"text","at":0,"delay":1.6,"text":",99 €","x":560,"y":800,"size":120,"color":"#7c86b8","align":"left"},
+ {"type":"text","at":1,"delay":1.2,"text":"≈ «9 y pico»","y":980,"size":90,"color":"#ffffff"},
+ {"type":"stamp","at":2,"delay":0.8,"text":"DÍGITO IZQUIERDO","x":540,"y":1140,"rot":-6,"color":"#ffc83d","size":52}]},
+{"sentences":[
+ {"tts":"Fíjate: de nueve con noventa y nueve a diez solo hay un céntimo, pero parece un salto.","chunks":["De 9,99 a 10,00","solo hay 1 céntimo","pero parece un salto"]},
+ {"tts":"En cambio, de nueve con noventa y ocho a nueve con noventa y nueve, también un céntimo, ni lo notas.","chunks":["De 9,98 a 9,99,","también 1 céntimo,","ni lo notas"]},
+ {"tts":"El efecto solo funciona cuando cambia la primera cifra.","chunks":["Solo funciona","cuando cambia","la primera cifra"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"9,99 → 10,00","y":560,"size":110,"color":"#ffffff"},
+ {"type":"stamp","at":0,"delay":2.2,"text":"¡SALTO!","x":760,"y":690,"rot":-9,"color":"#ff4d6d","size":60},
+ {"type":"text","at":1,"text":"9,98 → 9,99","y":900,"size":110,"color":"#ffffff"},
+ {"type":"stamp","at":1,"delay":2.8,"text":"NI SE NOTA","x":760,"y":1030,"rot":-9,"color":"#36d399","size":56},
+ {"type":"emoji","ch":"☝️","at":2,"x":180,"y":740,"size":150}]},
+{"sentences":[
+ {"tts":"Además, un precio acabado en noventa y nueve suena a oferta, aunque no lo sea.","chunks":["Además, un ,99","suena a oferta","aunque no lo sea"]},
+ {"tts":"Y hay una leyenda: que nació para obligar al cajero a abrir la caja y dar el cambio, y así no robar. Bonita, pero sin pruebas.","chunks":["Leyenda: para obligar","al cajero a abrir la caja","y dar el cambio.","Bonita, pero sin pruebas"]}],
+ "elements":[
+ {"type":"emoji","ch":"🔖","at":0,"y":520,"size":220,"out":1},
+ {"type":"stamp","at":0,"delay":1.4,"text":"¡OFERTA!","x":540,"y":820,"rot":-8,"color":"ACC","size":90,"out":1},
+ {"type":"emoji","ch":"💰","at":1,"delay":0.4,"y":620,"size":240},
+ {"type":"stamp","at":1,"delay":5.2,"text":"SIN PRUEBAS","x":540,"y":960,"rot":-6,"color":"#ffc83d","size":66}]},
+{"sentences":[
+ {"tts":"Ahora vas a ver nueves por todas partes. De nada.","chunks":["Ahora verás nueves","por todas partes.","De nada"]},
+ {"tts":"¿Cuál es el precio más tramposo que has visto? Te leo.","chunks":["¿El precio más tramposo","que has visto?","Te leo"]}],
+ "elements":[
+ {"type":"text","at":0,"text":"9 9 9 9 9","y":620,"size":150,"color":"ACC","out":1},
+ {"type":"text","at":1,"text":"¿El más tramposo","y":600,"size":100,"color":"ACC"},
+ {"type":"text","at":1,"delay":0.3,"text":"que has visto?","y":720,"size":100,"color":"ACC"},
+ {"type":"emoji","ch":"🕵️","at":1,"delay":0.8,"y":950,"size":200},
+ {"type":"footer","at":1,"text":"Fuente: Thomas y Morwitz (2005), Journal of Consumer Research"}]}
+]}

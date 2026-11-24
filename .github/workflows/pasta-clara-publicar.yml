@@ -1,0 +1,26 @@
+# Pasta Clara: publica cada día a las 19:00 (hora de Madrid en invierno) el Short del calendario.
+# El script y el calendario viven en la rama pasta-clara-media.
+name: Pasta Clara - publicar Short
+on:
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+    inputs:
+      fecha:
+        description: "Fecha AAAA-MM-DD a publicar (vacío = hoy)"
+        required: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: curl -sSL https://raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/publish_youtube.py -o publish_youtube.py
+      - run: python publish_youtube.py
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          FECHA: ${{ inputs.fecha }}

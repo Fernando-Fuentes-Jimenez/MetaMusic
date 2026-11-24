@@ -7,9 +7,9 @@ Mascota y presentador: «Duro», una moneda de 5 pesetas cascarrabias con bigote
 - Rama `pasta-clara-media` de este repo (Fernando-Fuentes-Jimenez/MetaMusic) = carpeta del proyecto.
 - `engine/`: motor de vídeo (tts.py, render.py, build.py, branding.py). `engine/setup.sh` lo instala en /home/claude.
 - `scripts/*.json`: guiones (escenas → frases con `tts` y `chunks` de subtítulo + `elements` animados). Úsalos como plantilla.
-- `calendario.json`: lo lee un flujo de n8n cada día a las 19:00 (Europe/Madrid) y publica el vídeo cuya `fecha` es hoy (si `n8n` no es false).
+- `calendario.json`: lo lee cada día a las 19:00 (Madrid) la GitHub Action `.github/workflows/pasta-clara-publicar.yml` de la rama main, que ejecuta `publish_youtube.py` y publica el vídeo cuya `fecha` es hoy (si `n8n` no es false; no repite títulos ya subidos).
   Cada entrada: fecha (YYYY-MM-DD), url (raw.githubusercontent.com/Fernando-Fuentes-Jimenez/MetaMusic/pasta-clara-media/<archivo>.mp4), title (≤100 car., acaba en #shorts), description, tags (separados por comas), categoryId "27".
-- Windsor.ai (conector YouTube, cuenta 118451 = canal Pasta Clara): leer estadísticas y comentarios, responder/moderar, editar título/descr./etiquetas. La subida de vídeos por Windsor está bloqueada (rate limit): NO subir por Windsor, para eso está n8n.
+- Windsor.ai (conector YouTube, cuenta 118451 = canal Pasta Clara): leer estadísticas y comentarios, responder/moderar, editar título/descr./etiquetas. La subida de vídeos por Windsor está bloqueada (rate limit): NO subir por Windsor, para eso está la GitHub Action.
 
 ## Fabricar un vídeo
 1. `bash /home/claude/metamusic/engine/setup.sh`

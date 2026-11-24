@@ -21,7 +21,7 @@ Mascota y presentador: «Duro», una moneda de 5 pesetas cascarrabias con bigote
 ## Formatos y temas (decidido por Fer, 24-11-2026)
 Objetivo: visualizaciones y suscriptores. Todo en este mismo canal.
 - **Shorts diarios (lunes a viernes, 19:00)**: siguen como hasta ahora.
-- **1 vídeo largo a la semana (8-12 min, horizontal 1920x1080, domingo 12:00)**: el dinero detrás de películas, sagas, famosos y noticias candentes. Ej.: cuánto ha generado una saga, sueldos de actores, presupuestos, historias de éxito/fracaso, la noticia económica de la semana.
+- **1 vídeo largo a la semana (8-12 min, horizontal 1920x1080, domingo 19:00)**: el dinero detrás de películas, sagas, famosos y noticias candentes. Ej.: cuánto ha generado una saga, sueldos de actores, presupuestos, historias de éxito/fracaso, la noticia económica de la semana.
 - De cada vídeo largo salen 2-3 Shorts de anticipo esa misma semana, que mandan al largo («vídeo completo en el canal»).
 - Calendario fijado:
   - Domingo 6-dic-2026: largo «¿Cuánto dinero generan Los Vengadores?» (taquilla de la saga, presupuestos, sueldos de actores, merchandising) por el estreno de Avengers: Doomsday (18-dic). Shorts de anticipo esa semana.

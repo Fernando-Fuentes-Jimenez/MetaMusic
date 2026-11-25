@@ -22,7 +22,15 @@ def ya_subidos(h):
     return {i["snippet"]["title"] for i in r.get("items", [])}
 
 def main():
-    fecha = os.environ.get("FECHA") or datetime.datetime.now(zoneinfo.ZoneInfo("Europe/Madrid")).date().isoformat()
+    fecha = os.environ.get("FECHA")
+    if not fecha:
+        # Ejecución programada (19:00 Madrid). GitHub a veces la retrasa horas: si arranca de madrugada
+        # ya es "mañana" y publicaría el vídeo del día siguiente antes de tiempo. Antes de las 18:00
+        # se usa la fecha de ayer (si ya estaba subido, no hace nada; si no, recupera el retrasado).
+        ahora = datetime.datetime.now(zoneinfo.ZoneInfo("Europe/Madrid"))
+        dia = ahora.date() if ahora.hour >= 18 else ahora.date() - datetime.timedelta(days=1)
+        fecha = dia.isoformat()
+        print("Hora Madrid:", ahora.strftime("%Y-%m-%d %H:%M"), "→ fecha a publicar:", fecha)
     cal = requests.get(RAW + "calendario.json", timeout=30).json()
     hoy = [v for v in cal["videos"] if v["fecha"] == fecha and v.get("n8n", True) is not False]
     if not hoy:

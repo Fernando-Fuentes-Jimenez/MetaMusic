@@ -1,0 +1,310 @@
+{
+ "tag": "BLACK FRIDAY",
+ "accent": "#ffc83d",
+ "scenes": [
+  {
+   "sentences": [
+    {
+     "tts": "Este viernes es Black Friday. De cada cien ofertas, ¿cuántas crees que son chollo de verdad?",
+     "chunks": [
+      "Este viernes: Black Friday",
+      "De cada 100 ofertas,",
+      "¿cuántas son chollo de verdad?"
+     ]
+    },
+    {
+     "tts": "Spoiler: muy pocas.",
+     "chunks": [
+      "Spoiler:",
+      "muy pocas"
+     ]
+    }
+   ],
+   "elements": [
+    {
+     "type": "emoji",
+     "ch": "🛍️",
+     "at": 0,
+     "y": 520,
+     "size": 280,
+     "hop": [
+      1
+     ]
+    },
+    {
+     "type": "text",
+     "at": 0,
+     "delay": 0.4,
+     "text": "27 NOV",
+     "y": 880,
+     "size": 150,
+     "color": "ACC"
+    },
+    {
+     "type": "stamp",
+     "at": 1,
+     "delay": 0.2,
+     "text": "¿CHOLLO?",
+     "x": 760,
+     "y": 1080,
+     "rot": -9,
+     "color": "#ff4d6d",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "tts": "El año pasado, la OCU siguió casi dos mil quinientos productos en sesenta y una tiendas online.",
+     "chunks": [
+      "El año pasado la OCU siguió",
+      "casi 2.500 productos",
+      "en 61 tiendas online"
+     ]
+    },
+    {
+     "tts": "Y comparó el precio del Black Friday con el más bajo de septiembre y octubre.",
+     "chunks": [
+      "Comparó el precio del Black Friday",
+      "con el más bajo",
+      "de septiembre y octubre"
+     ]
+    },
+    {
+     "tts": "Resultado: solo nueve de cada cien eran chollo de verdad.",
+     "chunks": [
+      "Resultado:",
+      "solo 9 de cada 100",
+      "eran chollo de verdad"
+     ]
+    }
+   ],
+   "elements": [
+    {
+     "type": "text",
+     "at": 0,
+     "text": "OCU, Black Friday 2025",
+     "y": 390,
+     "size": 60,
+     "w": "xbold",
+     "color": "#c9d2ff"
+    },
+    {
+     "type": "coins",
+     "at": 0,
+     "delay": 0.6,
+     "n": 100,
+     "hl": 9,
+     "hl_at": 2,
+     "y": 470
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "tts": "Y ojo con el precio tachado. La ley dice que el precio de antes tiene que ser el más bajo de los últimos treinta días.",
+     "chunks": [
+      "Ojo con el precio tachado:",
+      "por ley, el «antes» debe ser",
+      "el más bajo de los últimos 30 días"
+     ]
+    },
+    {
+     "tts": "Pues en ese estudio, ochenta y nueve de cada cien precios tachados no cumplían la norma.",
+     "chunks": [
+      "En ese estudio,",
+      "el 89 % de los precios tachados",
+      "no cumplía la norma"
+     ]
+    }
+   ],
+   "elements": [
+    {
+     "type": "text",
+     "at": 0,
+     "text": "Antes: 199 €",
+     "y": 470,
+     "size": 70,
+     "w": "xbold",
+     "color": "#7c86b8",
+     "out": 1
+    },
+    {
+     "type": "text",
+     "at": 0,
+     "delay": 0.5,
+     "text": "Ahora: 149 €",
+     "y": 580,
+     "size": 100,
+     "color": "#ffffff",
+     "out": 1
+    },
+    {
+     "type": "emoji",
+     "ch": "📅",
+     "at": 0,
+     "delay": 2.0,
+     "y": 780,
+     "size": 200,
+     "out": 1
+    },
+    {
+     "type": "text",
+     "at": 0,
+     "delay": 2.6,
+     "text": "mínimo de 30 días",
+     "y": 960,
+     "size": 70,
+     "color": "ACC",
+     "out": 1
+    },
+    {
+     "type": "count",
+     "at": 1,
+     "delay": 1.0,
+     "to": 89,
+     "suffix": " %",
+     "y": 720,
+     "size": 220,
+     "color": "#ff4d6d"
+    },
+    {
+     "type": "text",
+     "at": 1,
+     "delay": 1.4,
+     "text": "de precios tachados",
+     "y": 840,
+     "size": 60,
+     "w": "bold",
+     "color": "#c9d2ff"
+    },
+    {
+     "type": "stamp",
+     "at": 1,
+     "delay": 2.4,
+     "text": "NO CUMPLÍA",
+     "x": 560,
+     "y": 1030,
+     "rot": -7,
+     "color": "#ff4d6d",
+     "size": 64
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "tts": "El truco: si te gusta algo, apunta hoy su precio y compáralo el viernes.",
+     "chunks": [
+      "El truco: apunta hoy el precio",
+      "y compáralo el viernes"
+     ]
+    },
+    {
+     "tts": "Y si compras online, tienes catorce días para echarte atrás.",
+     "chunks": [
+      "Si compras online,",
+      "tienes 14 días",
+      "para echarte atrás"
+     ]
+    }
+   ],
+   "elements": [
+    {
+     "type": "emoji",
+     "ch": "📝",
+     "at": 0,
+     "x": 320,
+     "y": 620,
+     "size": 220
+    },
+    {
+     "type": "emoji",
+     "ch": "🔍",
+     "at": 0,
+     "delay": 1.6,
+     "x": 760,
+     "y": 620,
+     "size": 220
+    },
+    {
+     "type": "count",
+     "at": 1,
+     "delay": 0.8,
+     "to": 14,
+     "suffix": " días",
+     "y": 980,
+     "size": 170,
+     "color": "#36d399"
+    },
+    {
+     "type": "text",
+     "at": 1,
+     "delay": 1.2,
+     "text": "para devolver",
+     "y": 1080,
+     "size": 60,
+     "w": "bold",
+     "color": "#c9d2ff"
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "tts": "Este año pensamos gastar unos ciento noventa y seis euros de media, según la OCU.",
+     "chunks": [
+      "Este año, gasto medio previsto:",
+      "unos 196 €",
+      "según la OCU"
+     ]
+    },
+    {
+     "tts": "¿Tú vas a comprar algo o pasas? Te leo abajo.",
+     "chunks": [
+      "¿Vas a comprar algo",
+      "o pasas?",
+      "Te leo abajo"
+     ]
+    }
+   ],
+   "elements": [
+    {
+     "type": "count",
+     "at": 0,
+     "delay": 0.6,
+     "to": 196,
+     "suffix": " €",
+     "y": 700,
+     "size": 220,
+     "color": "ACC"
+    },
+    {
+     "type": "text",
+     "at": 0,
+     "delay": 1.0,
+     "text": "por persona",
+     "y": 820,
+     "size": 64,
+     "w": "bold",
+     "color": "#c9d2ff"
+    },
+    {
+     "type": "emoji",
+     "ch": "💬",
+     "at": 1,
+     "delay": 0.4,
+     "y": 1030,
+     "size": 160
+    },
+    {
+     "type": "footer",
+     "at": 1,
+     "text": "Fuentes: OCU (estudio de precios Black Friday 2025, encuesta nov. 2026)"
+    }
+   ]
+  }
+ ]
+}

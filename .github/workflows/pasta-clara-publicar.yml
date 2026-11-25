@@ -3,12 +3,15 @@
 name: Pasta Clara - publicar Short
 on:
   schedule:
-    - cron: "0 18 * * *"
+    - cron: "3 18 * * *"  # minuto 3 y no 0: a las en punto GitHub va saturado y retrasa más
   workflow_dispatch:
     inputs:
       fecha:
         description: "Fecha AAAA-MM-DD a publicar (vacío = hoy)"
         required: false
+concurrency:
+  group: pasta-clara-publicar
+  cancel-in-progress: false
 jobs:
   publicar:
     runs-on: ubuntu-latest
